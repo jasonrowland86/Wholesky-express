@@ -14,9 +14,7 @@ app.get('/', function (req, res) {
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.status(400).json({
-    message: 'Endpoint not found'
-  });
+  res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });
 
 const port = process.env.PORT || 3001;
